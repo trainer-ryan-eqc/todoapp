@@ -1,0 +1,194 @@
+:root {
+    --primary: #0c2e38;
+    --primaryHover: #081c22;
+    --primaryActive: #051214;
+    --lightText: white;
+}
+
+.bg-img {
+    background-image: url(/Images/Black\ Background\ Abstract.jpg);
+    height: 90vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.829);
+    background-blend-mode: overlay;
+}
+
+#deleteButton:focus-visible, #deleteButton:active, #deleteButton:focus, #deleteButton {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.bg-img.dashboard {
+    height: auto;
+}
+
+.nav-link {
+    color: var(--lightText) !important;
+    transition: 0.2s;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.nav-link:hover {
+    background-color: var(--primaryHover) !important;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+nav {
+    background-color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    transition: 0.15s !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primaryHover) !important;
+    border-color: var(--primaryHover) !important;
+    transform: translateY(-3px);
+    transition: 0.15s;
+}
+
+.btn-outline-primary {
+    border-color: var(--lightText) !important;
+    color: var(--lightText) !important;
+    transition: 0.15s !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primaryHover) !important;
+    border-color: var(--primaryHover) !important;
+    transform: translateY(-3px);
+    transition: 0.15s;
+}
+
+.btn-outline-primary:active {
+    background-color: var(--primaryActive) !important;
+    border-color: var(--primaryActive) !important;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.bg-dkgreen {
+    background-color: var(--primary);
+}
+
+.input-group {
+    width: 100% !important;
+}
+
+footer .nav-link {
+    text-decoration: underline;
+}
+
+footer .nav-link:hover {
+    text-decoration: underline;
+    background-color: transparent !important;
+    color: var(--primaryHover) !important;
+}
+
+footer .btn-outline-primary:hover {
+    transform: none;
+    transition: none;
+}
+
+.password-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.eye-toggle {
+    position: absolute;
+    right: 0px; 
+}
+
+.eye-toggle:active {
+    border-color: transparent !important;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.slideUp {
+    animation-name: slideUp;
+    animation-duration: 1.2s;
+    animation-delay: 0.2s;
+    opacity: 0;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.slideUp.delay {
+    animation-delay: 0.5s;
+}
+
+#form .link {
+    color: var(--primaryHover);
+    text-decoration: none;
+}
+
+#form .link:hover {
+    text-decoration: underline 1px;
+}
+
+.card-header, .card-footer {
+    background-color: var(--primary) !important;
+    padding: 18px 0px;
+}
+
+.toggleBox {
+    position: relative;
+    height: 18px;
+    width: 30px;
+    background-color: var(--primary);
+    border-radius: 9px;
+    border: 1px var(--primary);
+    display: flex;
+    align-items: center;
+}
+
+.toggleBall {
+    background-color: white;
+    height: 14px;
+    width: 14px;
+    border-radius: 7px;
+    position: absolute;
+    transition: 0.2s;
+    left: 2px;
+}
+
+.toggleBall.left {
+    transform: translateX(0px);
+    transition: 0.2s;
+}
+
+.toggleBall.right {
+    transform: translateX(11.5px);
+    transition: 0.2s;
+}
+
+.card {
+    height: 100%;
+}
+

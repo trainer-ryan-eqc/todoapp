@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App | Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png">
+    <link rel="manifest" href="/Images/site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="bg-dkgreen">
+
+    <!-- ↓ Navbar & Hero ↓ -->
+
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container">
+                <a class="navbar-brand" href="/home">
+                    <img src="/Images/logo.svg" alt="logo" height="50px" width="auto">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><img src="/Images/Hamburger.svg" alt="hamburger icon" height="40px" width="auto"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pricing">Pricing</a>
+                        </li>
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link" href="/login">Logout</a>
+                        </li>
+                    </ul>
+                    <div class="d-none d-lg-block ms-3">
+                        <a href="/login"><button type="button" class="btn btn-outline-primary">Logout</button></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+  <!-- ↑ Navbar ↑ -->
+
+  <!-- ↓ Create a task ↓ -->
+
+    <main>
+        <div class="bg-img dashboard py-5">
+            <div class="d-flex justify-content-center flex-column align-items-center container">
+                <div class="rounded shadow bg-white p-5 slideUp col-md-12 col-10">
+                    <form id="taskForm" class="mb-5">
+                        <h1 id="greeting" class="mb-5 display-2"></h1>
+                        <h2 class="mb-3">New Task</h2>
+                        <input id="taskName" placeholder="Task Name" class="mb-2 form-control shadow-sm" type="text">
+                        <textarea placeholder="Task Description" id="taskDescription" rows="7" class="form-control mb-2 shadow-sm"></textarea>
+                        <input id="dueDate" placeholder="Task Name" class="mb-3 form-control shadow-sm" type="date">
+                        <button type="submit" class="btn btn-primary shadow-sm px-5">Create Task</button>
+                    </form>
+                    <div class="row">
+                        <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                            <h2 class="mb-3">To Do</h2>
+                            <ul id="toDoList" class="list-group"></ul>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h2 class="mb-3">Completed</h2>
+                            <ul id="completedList" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ↑ Create a task ↑ -->
+
+    <!-- ↓ Footer ↓ -->
+
+    <footer class="py-5 container">
+        <div class="d-flex justify-content-between flex-column gap-5 gap-md-0 flex-md-row align-items-center px-3 mb-5">
+            <a href="/home">
+                <img src="/Images/logo.svg" alt="logo" height="100px" width="auto">
+            </a>
+            <div class="col-12 col-sm-8 col-md-7 col-lg-5 col-xl-4">
+                <h3 class="text-white mb-3 text-center text-md-start">Subscribe to our Newsletter</h3>
+                <div class="input-group">
+                    <input  placeholder="Enter your email" type="email" class="form-control">
+                    <button class="btn btn-outline-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center flex-column gap-3 gap-md-0 flex-md-row align-items-center">
+            <a class="nav-link" href="#">Privacy Policy</a>
+            <p class="text-white m-0 d-none d-md-block">|</p>
+            <a class="nav-link" href="#">Terms of Service</a>
+            <p class="text-white mb-0 me-3 d-none d-md-block">|</p>
+            <p class="text-white m-0"> To Do App &COPY; 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- ↓ Edit Task Modal - pops up when needed ↓ -->
+
+    <div class="modal fade" id="editTaskWindow" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editTaskForm" class="mb-5">
+                        <input id="editTaskName" placeholder="Task Name" class="mb-2 form-control shadow-sm" type="text">
+                        <textarea id="editTaskDescription" placeholder="Task Description"  rows="7" class="form-control mb-2 shadow-sm"></textarea>
+                        <input id="editDueDate" placeholder="Task Name" class="mb-3 form-control shadow-sm" type="date">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveChangesButton" data-id="taskId" type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const taskForm = document.getElementById('taskForm');
+        const editTaskForm = document.getElementById('editTaskForm');
+        const url = 'http://localhost:3000';
+
+        // ------------- ↓ FUNCTIONS AND EVENT LISTENERS ↓ -----------------
+
+        // resets form and gets tasks and displays them when window loads/refreshes
+        window.addEventListener('DOMContentLoaded', () => {             
+            formReset();
+            getTasks();
+        });
+
+
+        // Function to reset form to blank
+        function formReset() {                                          
+            document.getElementById('taskName').value = '';
+            document.getElementById('taskDescription').value = '';
+            document.getElementById('dueDate').value = '';
+        };
+
+
+        //event listener for each task button (Create Task, Done, Not done, Edit, X)
+        document.addEventListener('DOMContentLoaded', () => {
+            const toDoList = document.getElementById('toDoList');
+            const completedList = document.getElementById('completedList');
+
+
+            taskForm.addEventListener('submit', (event) => {          // Creates new task on form submit and clears form 
+                event.preventDefault();
+
+                postTasks();
+            });
+
+
+            toDoList.addEventListener('click', (event) => {                // task completed when 'Done' button is clicked
+                if (event.target.classList.contains('done')) {
+                    const taskId = event.target.getAttribute('data-id');
+
+                    completeTask(taskId);
+                }
+            });
+
+
+            completedList.addEventListener('click', (event) => {           // moves completed task back to to do list column when 'Not done' button is clicked
+                if (event.target.classList.contains('notDone')) {
+                    const taskId = event.target.getAttribute('data-id');
+
+                    taskNotCompleted(taskId);
+                }
+            });
+
+            
+            [toDoList, completedList].forEach(list => {
+                list.addEventListener('click', (event) => {
+                    
+                    if (event.target.classList.contains('delete')) {
+                        const taskId = event.target.getAttribute('data-id');
+
+                        deleteTask(taskId);
+                    }
+                });
+            });
+
+
+            toDoList.addEventListener('click', (event) => {
+                if (event.target.classList.contains('edit')) {
+                    const taskId = event.target.getAttribute('data-id');
+                    const taskTitle = event.target.getAttribute('data-title');
+                    const taskDescription = event.target.getAttribute('data-description');
+                    const taskDueDate = new Date(event.target.getAttribute('data-due-date'));
+
+                    const editTaskName = document.getElementById('editTaskName');
+                    const editTaskDescription = document.getElementById('editTaskDescription');
+                    const editDueDate = document.getElementById('editDueDate');
+                    const saveChangesButton = document.getElementById('saveChangesButton');
+
+                    editTaskName.value = taskTitle;
+                    editTaskDescription.value = taskDescription;
+
+                    const formattedDueDate = taskDueDate.toISOString().split('T')[0];  // This is to convert the date format back to the ISO 8601 standard so that is able to be read by <input type="date">
+
+                    editDueDate.value = formattedDueDate;
+
+                    saveChangesButton.addEventListener('click', async () => {
+                        await editTask(taskId);
+
+                        const editTaskModal = bootstrap.Modal.getInstance(document.getElementById('editTaskWindow'));
+                        editTaskModal.hide();
+                    }, { once: true });
+                }
+            });
+        });
+
+
+
+
+
+
+
+        //  ------------------------------------- ↓ API REQUESTS ↓ ---------------------------------------- 
+
+        // creates and saves new tasks to the database ↓
+
+        async function postTasks() {
+
+            console.log('form submitted');
+
+            const taskName = document.getElementById('taskName').value;
+            const taskDescription = document.getElementById('taskDescription').value;
+            const dueDate = document.getElementById('dueDate').value;
+
+            try {
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ title: taskName, description: taskDescription, dueDate: dueDate, completed: false })
+                };
+
+                console.log({ title: taskName, description: taskDescription, dueDate: dueDate });
+
+                const response = await fetch(`${url}/tasks`, options);
+
+                if (!response.ok) {
+                    throw new Error(`Failed to post task: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                console.log(data);
+
+                getTasks();  // This is here to update the lists once new tasks have been created - tasks will then be displayed
+ 
+            } catch (error) {
+                console.error('Error: ', error);
+            }
+        };
+
+
+
+
+
+
+        // retrieves the tasks from the database to display in each appropriate list ↓
+
+        async function getTasks() {
+            try {
+                const response = await fetch(`${url}/tasks`);
+
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+
+                function taskElement(task) {
+                    const li = document.createElement('li'); 
+
+                    li.classList.add('card', 'p-3', 'shadow-sm', 'mb-2', 'task-item');
+                    li.innerHTML = task.completed ? 
+                    `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4>${task.title}</h4>
+                        <button id="deleteButton" type="button" class="btn-close delete" data-id="${task._id}" aria-label="Close"></button>
+                    </div>
+                    <p>${task.description}</p>
+                    <p><strong>Due: </strong>${new Date(task.dueDate).toLocaleDateString()}</p>
+                    <div>
+                        <button data-id="${task._id}" class="btn btn-primary shadow-sm notDone" type="button">Not done</button>
+                    </div>
+                    `
+                    :
+                    `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4>${task.title}</h4>
+                        <button id="deleteButton" type="button" class="btn-close delete" data-id="${task._id}" aria-label="Close"></button>
+                    </div>
+                    <p>${task.description}</p>
+                    <p><strong>Due: </strong>${new Date(task.dueDate).toLocaleDateString()}</p>
+                    <div>
+                        <button data-id="${task._id}" data-title="${task.title}" data-description="${task.description}" data-due-date="${task.dueDate}" class="btn btn-primary shadow-sm edit" data-bs-toggle="modal" data-bs-target="#editTaskWindow" type="button">Edit</button>
+                        <button data-id="${task._id}" class="btn btn-primary shadow-sm done" type="button">Done</button>
+                    </div>
+                    `
+                    ;
+                    return li;
+                }
+
+                const toDoList = document.getElementById('toDoList');
+                const completedList = document.getElementById('completedList');
+
+                const data = await response.json();
+
+                toDoList.innerHTML = '';
+                completedList.innerHTML = '';
+
+                data.forEach(task => {
+                    const displayTask = taskElement(task);
+
+                    task.completed ? completedList.appendChild(displayTask) : toDoList.appendChild(displayTask);
+                });
+
+                formReset();  // to reset the form ready for another task
+            } 
+            catch (error) {
+                console.error('Error: ', error);
+            }
+        };
+
+
+
+
+
+
+        // marks task as completed ↓
+
+        async function completeTask(taskId) {
+            try {
+                console.log(taskId);
+
+                const response = await fetch(`${url}/tasks/complete/${taskId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ completed: true })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+
+                    console.error(`Network Error: ${response.status} - ${errorText}`);
+                    throw new Error(`Network Error: ${response.status} - ${errorText}`);
+                }
+
+                const data = await response.json();
+
+                console.log('Task completed', data);
+
+                getTasks();   // This is here to update the lists once 'completed' value has been changed - so the completed task appears in the correct list
+            } 
+            catch (error) {
+                console.error('Error: ', error);
+            }
+        };
+
+
+
+
+
+
+        // marks task as not complete ↓
+
+        async function taskNotCompleted(taskId) {
+            try {
+                const response = await fetch(`${url}/tasks/notComplete/${taskId}`, {
+                    method: 'PATCH', 
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ completed: false })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network Error!');
+                }
+
+                const data = await response.json();
+
+                console.log('Task not complete', data);
+
+                getTasks();
+                
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+
+
+
+
+
+        // delete task ↓
+
+        async function deleteTask(taskId) {
+            try {
+                const response = await fetch(`${url}/tasks/${taskId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network Error!');
+                }
+
+                const data = await response.json();
+
+                console.log({ message: 'Deleted Task', Task: data });
+
+                getTasks(); // This is here to update the lists once task has been deleted - this reflects the the deletion of the task
+                
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+
+
+
+
+
+        // enables editing of the task ↓
+
+        async function editTask(taskId) {
+
+            const updatedTitle = editTaskName.value;
+            const updatedDescription = editTaskDescription.value;
+            const updatedDueDate = editDueDate.value;
+
+            const updatedDetails = {     // Wrapping the new data up in an object (Parcel) ready to send
+                title: updatedTitle,
+                description: updatedDescription,
+                dueDate: updatedDueDate,
+                completed: false
+            };
+            
+            try {
+                const response = await fetch(`${url}/tasks/${taskId}`, {     // Sending parcel (Data)
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updatedDetails)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network error!')
+                }
+
+                const data = await response.json();        // Receiving message from carrier pigeon
+
+                console.log('Edited Task', data);  
+
+                getTasks();
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
+</body>
+</html>
+
+

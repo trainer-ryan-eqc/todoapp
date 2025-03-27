@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App | Home</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png">
+    <link rel="manifest" href="/Images/site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="bg-dkgreen">
+
+    <!-- ↓ Navbar & Hero ↓ -->
+
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container">
+                <a class="navbar-brand" href="/home">
+                    <img src="/Images/logo.svg" alt="logo" height="50px" width="auto">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><img src="/Images/Hamburger.svg" alt="hamburger icon" height="40px" width="auto"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pricing">Pricing</a>
+                        </li>
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link" href="/signup">Sign Up</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex gap-2 d-none d-lg-block ms-3">
+                        <a href="/login"><button type="button" class="btn btn-outline-primary">Login</button></a>
+                        <a href="/signup"><button type="button" class="btn btn-outline-primary">Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="d-flex justify-content-center flex-column align-items-center bg-img">
+        <h1 class="display-2 text-center text-white slideUp">Welcome to my To Do App</h1>
+        <div class="slideUp delay d-flex justify-content-center align-items-center gap-3 mt-5">
+            <a href="/dashboard"><button type="button" class="btn btn-outline-primary px-5">Go to dashboard</button></a>
+        </div>
+    </div>
+    
+
+    <!-- ↑ Navbar & Hero ↑ -->
+
+    <!-- ↓ Main Content ↓ -->
+
+    <main>
+        <div class="p-5 container">
+            <div class="row row-cols-3 d-flex justify-content-center gap-5 mb-5">
+                <div class="col-lg-3 col-12 bg-white p-5 rounded-3 shadow">
+                    <h3 class="text-center">Task Management</h3>
+                    <p class="text-center">Create, edit, delete, and organize tasks with categories, due dates, and priority levels.</p>
+                </div>
+                <div class="col-lg-4 col-12 bg-white p-5 rounded-3 shadow">
+                    <h3 class="text-center">Collaboration & Sharing</h3>
+                    <p class="text-center">Assign tasks to others, add comments, and track progress in a shared workspace.</p>
+                </div>
+                <div class="col-lg-3 col-12 bg-white p-5 rounded-3 shadow">
+                    <h3 class="text-center">Notifications</h3>
+                    <p class="text-center">Get alerts for upcoming deadlines and overdue tasks.</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="/features.html">
+                    <button type="button" class="btn btn-outline-primary">Find out more</button>
+                </a>
+            </div>
+        </div>
+        <div class="p-5 bg-black">
+            <div class="container">
+                <h2 class="text-center mb-5 text-white">Integrate with your favourite apps</h2>
+                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center gap-5" ">
+                    <a href="https://slack.com/signin#/signin" style="height: 100px;" target="_blank" rel="noopener noreferrer">
+                        <img src="/Images/Slack-Emblema.png" alt="" height="100%">
+                    </a>
+                    <a href="https://www.notion.so/login" style="height: 100px;" target="_blank" rel="noopener noreferrer">
+                        <img src="/Images/Notion-Logo-PNG-File.png" alt="" height="100%">
+                    </a>
+                    <a href="https://asana.com/" style="height: 100px;" target="_blank" rel="noopener noreferrer">
+                        <img class="me-lg-4" src="/Images/Asana-Symbol.png" alt="" height="100%">
+                    </a>
+                    <a href="https://app.clickup.com/login" style="height: 100px;" target="_blank" rel="noopener noreferrer">
+                        <img class="ms-lg-5" src="/Images/Clickup-Icon-Logo-Vector.svg--250x300.png" alt="" height="100%">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ↑ Main Content ↑ -->
+
+    <!-- ↓ Footer ↓ -->
+
+    <footer class="py-5 container">
+        <div class="d-flex justify-content-between flex-column gap-5 gap-md-0 flex-md-row align-items-center px-3 mb-5">
+            <a href="/home">
+                <img src="/Images/logo.svg" alt="logo" height="100px" width="auto">
+            </a>
+            <div class="col-12 col-sm-8 col-md-7 col-lg-5 col-xl-4">
+                <h3 class="text-white mb-3 text-center text-md-start">Subscribe to our Newsletter</h3>
+                <div class="input-group">
+                    <input  placeholder="Enter your email" type="email" class="form-control">
+                    <button class="btn btn-outline-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center flex-column gap-3 gap-md-0 flex-md-row align-items-center">
+            <a class="nav-link" href="#">Privacy Policy</a>
+            <p class="text-white m-0 d-none d-md-block">|</p>
+            <a class="nav-link" href="#">Terms of Service</a>
+            <p class="text-white mb-0 me-3 d-none d-md-block">|</p>
+            <p class="text-white m-0"> To Do App &COPY; 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="/functions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
+</body>
+</html>
+
+
+
