@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+</head>
+<body>
+    
+    <!-- ↓ Navbar ↓ -->
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/frontend/index.html">
+                <img src="/frontend/images/Logo.svg" alt="Logo" height="50px" width="auto">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
+                <img src="/frontend/images/HamburgerIcon.svg" alt="Hamburger Icon" height="40px" width="auto">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/frontend/features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/frontend/pricing.html">Pricing</a>
+                    </li>
+                    <li class="nav-item d-block d-lg-none">
+                        <a class="nav-link" href="/frontend/login.html">Login</a>
+                    </li>
+                    <li class="nav-item d-block d-lg-none">
+                        <a class="nav-link" href="/frontend/signup.html">Signup</a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2 d-none d-lg-block ms-3">
+                    <a class="btn btn-outline-light" href="/frontend/login.html">Login</a>
+                    <a class="btn btn-outline-light" href="/frontend/signup.html">Signup</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ↑ Navbar ↑ -->
+
+    <!-- ↓ Create a task ↓ -->
+
+    <main>
+        <div class="bg-img dashboard py-5">
+            <div class="d-flex justify-content-center align-items-center flex-column container px-3 px-md-4 px-lg-5">
+                <div class="rounded shadow bg-white p-3 p-lg-5 col-12">
+                    <form id="taskForm" class="mb-5">
+                        <h1 id="greeting" class="mb-5 display-2">Hello!</h1>
+                        <h2 class="mb-3">New Task</h2>
+                        <input id="taskName" type="text" class="mb-2 form-control shadow-sm" placeholder="Task Name">
+                        <textarea id="taskDescription" type="text" class="form-control mb-2 shadow-sm" placeholder="Task Description" rows="7"></textarea>
+                        <input id="dueDate" type="date" class="mb-3 form-control shadow-sm" placeholder="Due Date">
+                        <button type="submit" class="btn btn-dark shadow-sm px-5">Create Task</button>
+                    </form>
+                    <div class="d-flex align-items-center gap-3 mb-5">
+                        <label for="sortSelect">Sort By:</label>
+                        <select id="sortSelect" class="form-select w-auto shadow-none">
+                            <option value="default" selected>Default</option>
+                            <option value="dueDate">Due Date</option>
+                            <option value="dateCreated">Date Created</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                            <h2>To Do</h2>
+                            <ul id="toDoList" class="list-group"></ul>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h2>Completed</h2>
+                            <ul id="completedList" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ↑ Create a task ↑ -->
+
+    <!-- ↓ Footer ↓ -->
+
+    <footer>
+        <div class="py-5 container">
+            <div class="d-flex justify-content-between flex-column gap-5 gap-md-0 flex-md-row align-items-center px-3 mb-5">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/images/Logo.svg" alt="Logo" height="100px" width="auto">
+                </a>
+                <div class="col-12 col-sm-8 col-md-7 col-lg-5 col-xl-4">
+                    <h3 class="text-white mb-3 text-center text-md-start">Subscribe to our Newsletter</h3>
+                    <div class="input-group">
+                        <input type="email" placeholder="Enter your email..." class="form-control">
+                        <button type="button" class="btn btn-outline-light">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center flex-column gap-3 flex-md-row align-items-center">
+                <a class="nav-link" href="#">Privacy Policy</a>
+                <p class="m-0 d-none d-md-block">|</p>
+                <a class="nav-link" href="#">Terms of Service</a>
+                <p class="m-0 d-none d-md-block">|</p>
+                <p class="m-0">ListMe &COPY; 2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ↑ Footer ↑ -->
+
+    <!-- ↓ Edit Task Modal - pops up when needed ↓ -->
+
+    <div class="modal fade" id="editTaskWindow" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editTaskForm" class="mb-5">
+                        <input id="editTaskName" placeholder="Task Name" class="mb-2 form-control shadow-sm" type="text">
+                        <textarea id="editTaskDescription" placeholder="Task Description" rows="7" class="form-control mb-2 shadow-sm"></textarea>
+                        <input id="editDueDate" placeholder="Task Name" class="mb-3 form-control shadow-sm" type="date">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveChangesButton" data-id="taskId" type="submit" class="btn btn-dark">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ↑ Edit Task Modal ↑ -->
+
+    <script src="/frontend/js/API.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>
