@@ -1,7 +1,7 @@
 // ------------------ ↓ GLOBAL VARIABLES (ALLOWED TO BE USED IN EVERY FUNCTION ONWARDS) ↓ ------------------
 
 const taskForm = document.getElementById("taskForm");
-const url = "http://localhost:3000";
+const url = "https://todoapp-mss0.onrender.com";
 
 
 // ----------------------------------------- ↓ GENERAL FUNCTIONS ↓ -----------------------------------------
