@@ -22,7 +22,7 @@ nav, footer {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url(/frontend/images/homeBackground.jpg);
+    background-image: url(../images/homeBackground.jpg);
     background-blend-mode: overlay;
     background-color: rgba(0, 0, 0, 0.504);
 }
