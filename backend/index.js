@@ -16,8 +16,13 @@ const app = express();  // Using Express.js to power the app
 // -------------------------------- ↓ MIDDLEWARE SETUP ↓ -----------------------------------
 
 app.use(express.json());  // Uses express in JSON format
-app.use(cors('*')); // Enables use of CORS - * means every domain is now allowed acces to this server to send and receive data - not secure - * is for development only
 
+const corsOptions = {
+    origin: 'https://todoapp-eight-bay.vercel.app',
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true
+};
+app.use(cors(corsOptions)); // Enables use of CORS - * means every domain is now allowed acces to this server to send and receive data - not secure - * is for development only
 
 
 // ----------------------- ↓ DATABASE CONNECTION + APP STARTUP ↓ --------------------------
