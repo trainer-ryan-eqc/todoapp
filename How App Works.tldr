@@ -80,9 +80,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 473.21012866266346,
-			"y": 312.88192384681173,
-			"lastActivityTimestamp": 1749724646059,
+			"x": 298.7513436853209,
+			"y": 585.0053175860206,
+			"lastActivityTimestamp": 1751536854842,
 			"meta": {}
 		},
 		{
@@ -369,8 +369,8 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 103.16212195213802,
-			"y": 48.443201750898275,
+			"x": 223.54471581491757,
+			"y": 75.57686764747858,
 			"z": 0.9400798475673274,
 			"meta": {},
 			"id": "camera:page:page",
@@ -408,6 +408,56 @@
 			},
 			"parentId": "page:page",
 			"index": "aS3F1",
+			"typeName": "shape"
+		},
+		{
+			"x": 171.1026122392341,
+			"y": 528.3879067947598,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:TYFb1plLThzQzQ-kygdNw",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 463.03125,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 0.37971865667015925,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://todoapp-eight-bay.vercel.app/",
+												"target": "_blank",
+												"rel": "noopener noreferrer nofollow",
+												"class": null
+											}
+										}
+									],
+									"text": "https://todoapp-eight-bay.vercel.app/"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "ao4Dh",
 			"typeName": "shape"
 		},
 		{
@@ -646,7 +696,9 @@
 		{
 			"editingShapeId": null,
 			"croppingShapeId": null,
-			"selectedShapeIds": [],
+			"selectedShapeIds": [
+				"shape:OEJbIaUih1f3OgtV-IZE7"
+			],
 			"hoveredShapeId": null,
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
@@ -720,6 +772,43 @@
 			},
 			"parentId": "page:page",
 			"index": "a816c",
+			"typeName": "shape"
+		},
+		{
+			"x": 245.56437224945145,
+			"y": 458.42032556865126,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:OEJbIaUih1f3OgtV-IZE7",
+			"type": "arrow",
+			"props": {
+				"kind": "arc",
+				"elbowMidPoint": 0.5,
+				"dash": "draw",
+				"size": "m",
+				"fill": "none",
+				"color": "black",
+				"labelColor": "black",
+				"bend": 0,
+				"start": {
+					"x": 0,
+					"y": 0
+				},
+				"end": {
+					"x": 1.0637394287173834,
+					"y": 67.01558400919555
+				},
+				"arrowheadStart": "none",
+				"arrowheadEnd": "arrow",
+				"text": "",
+				"labelPosition": 0.5,
+				"font": "draw",
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "ap3Ub",
 			"typeName": "shape"
 		},
 		{
@@ -1750,8 +1839,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1355.833251953125,
-				"h": 785.8333129882812
+				"w": 1657,
+				"h": 966
 			},
 			"insets": [
 				false,
@@ -1766,7 +1855,7 @@
 			"isChatting": false,
 			"highlightedUserIds": [],
 			"isFocused": true,
-			"devicePixelRatio": 1.2000000476837158,
+			"devicePixelRatio": 1,
 			"isCoarsePointer": false,
 			"isHoveringCanvas": true,
 			"openMenus": [],
